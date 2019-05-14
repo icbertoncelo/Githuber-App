@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import api from '~/services/api';
 
 import styles from './styles';
+import { colors } from '~/styles';
 
 class Welcome extends Component {
   state = {
@@ -51,7 +52,10 @@ class Welcome extends Component {
 
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={colors.secondary}
+        />
 
         <Text style={styles.title}>Welcome</Text>
         <Text style={styles.text}>Enter your Github username to continue</Text>
