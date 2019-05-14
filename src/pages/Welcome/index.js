@@ -17,6 +17,32 @@ class Welcome extends Component {
     username: '',
   };
 
+  checkUserExists = async (username) => {
+    const user = await api.get(`/users/${username}`);
+
+    return user;
+  };
+
+  saveUser = async (username) => {
+    await AsyncStorage.setItem('@Githuber:username', username);
+  };
+
+  signIn = async () => {
+    const { username } = this.state;
+    const { navigation } = this.props;
+
+    try {
+      await this.checkUserExists(username);
+      await this.saveUser(username);
+
+      navigation.navigate('Repositories');
+    } catch (err) {
+      console.tron.log('User does not exist');
+    } finally {
+      this.setState({ username: '' });
+    }
+  };
+
   render() {
     const { username } = this.state;
 
@@ -39,7 +65,7 @@ class Welcome extends Component {
           />
           <TouchableOpacity
             style={styles.button}
-            onPress={() => {}}
+            onPress={this.signIn}
           >
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
