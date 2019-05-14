@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { metrics, colors } from '~/styles';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+// Para iPhones
+// import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const styles = StyleSheet.create({
   container: {
-    height: 54 + getStatusBarHeight(),
-    paddingTop: getStatusBarHeight(),
+    // height: 54 + getStatusBarHeight(),
+    // paddingTop: getStatusBarHeight(),
+    height: 54,
     borderBottomWidth: 1,
     borderBottomColor: colors.light,
     flexDirection: 'row',
@@ -16,6 +18,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: colors.darker,
+  },
+  icon: {
     color: colors.darker,
   },
 });
