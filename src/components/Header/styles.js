@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     // height: 54 + getStatusBarHeight(),
     // paddingTop: getStatusBarHeight(),
+    backgroundColor: colors.white,
     height: 54,
     borderBottomWidth: 1,
     borderBottomColor: colors.light,
